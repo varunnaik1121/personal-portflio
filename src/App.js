@@ -1,16 +1,17 @@
-import React from "react";
-import { Home, About, Skills } from "./container";
-import { Navbar } from "./components";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ErrorPage from "./components/ErrorPage";
+import Main from "./Main";
 import "./App.scss";
-import { Contact } from "./container";
 const App = () => {
   return (
     <>
-      <Navbar />
-      <Home />
-      <About />
-      <Skills />
-      <Contact />
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<Main />}></Route>
+          <Route exact path="*" element={<ErrorPage />}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };

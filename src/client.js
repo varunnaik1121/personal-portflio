@@ -1,19 +1,29 @@
-import sanityClient from "@sanity/client";
+// import { createClient, createImageUrlBuilder } from "next-sanity";
+
+// export const config = {
+//   projectId: "j94uj3w7",
+//   dataset: "production",
+//   apiVersion: "v2021-10-21",
+//   useCdn: true,
+// };
+// export const sanityClient = createClient(config);
+// export const urlFor = (source) => createImageUrlBuilder(config).image(source);
+//token:
+// "skXxM3CozpJXvXxq8bs3os12pZeo6FqiNjdctMUXi6igvQJt1daEXBTcwXA0aGYwDRgG0x2bdqgCk5tmFqJDp5rwp0pEeA0YJOPDNSWswlOsDJoG0X4OM2sIkeseRG0bawunKJlRMlycxK0vcUaI9PXzBvkmTrbuyjQ6BBlGQ7Oeve6Wzxkw",
+
 import imageUrlBuilder from "@sanity/image-url";
+import SanityClient from "@sanity/client";
+export const client = SanityClient({
+  projectId: "j94uj3w7",
+  dataset: "production",
+  apiVersion: "2022-04-02",
 
-export const client = sanityClient({
-  projectId: "ps09flap",
-  dataset: "productionvarun",
-
-  apiVersion: "2022-04-01",
   useCdn: true,
   token:
-    "skdrKsk6cixlDCZpDsULh3cB6KETdbmtKXeHL0ngaRULJA3g2JGydTZRv5jjj2hDfe2nhl1RCvfYHNLD8MYLnq4VTJynmj7awqADH6lrmWy4UYtY81TDnuBOzdI5hxQV8aa6q4PAIon6Ymo0ERHRZYeLeswSWelQkYtovvco5QQG8TtC5bCU",
+    "skXxM3CozpJXvXxq8bs3os12pZeo6FqiNjdctMUXi6igvQJt1daEXBTcwXA0aGYwDRgG0x2bdqgCk5tmFqJDp5rwp0pEeA0YJOPDNSWswlOsDJoG0X4OM2sIkeseRG0bawunKJlRMlycxK0vcUaI9PXzBvkmTrbuyjQ6BBlGQ7Oeve6Wzxkw",
 });
-
 const builder = imageUrlBuilder(client);
 
 export const urlFor = (source) => {
   return builder.image(source);
-  
 };

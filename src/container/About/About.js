@@ -6,12 +6,27 @@ import AppWrap from "../../Wrapper/AppWrap";
 import { urlFor, client } from "../../client";
 
 const About = () => {
+  const [about, setAbout] = useState([]);
+  useEffect(() => {
+    const query = `*[_type=='abouts']{
+      imgUrl
+    }`;
+    client.fetch(query).then((data) => {
+      setAbout(data);
+    });
+  }, []);
+  console.log(about);
+
   console.log(urlFor());
   return (
     <div className="app__container-bg-normal app__container-border-bottom-small">
-      <div className="app__flex margin-min">
+      <motion.div
+        className="app__flex margin-min"
+        whileInView={{ opacity: [0, 1] }}
+        transition={{ duration: 0.6 }}
+      >
         <h1 className="app__links-bold-text">&lt; About Me &gt; </h1>
-      </div>
+      </motion.div>
       <motion.div
         className="app__bio"
         whileInView={{ opacity: [0, 1] }}

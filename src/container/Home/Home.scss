@@ -31,12 +31,18 @@
 
     .p-text {
       font-size: 0.8rem;
-      color: var(--light-color);
-      max-width: inherit;
-      line-height: 24px;
-      text-transform: lowercase;
+        text-transform: capitalize;
+        padding: 1rem 0;
+        color: var(--light-text);
+        font-weight: 400;
+        max-width: 90%;
+        line-height: 25px;
+        text-align: center;
+       
+       
+        letter-spacing: 1px;
 
-      font-weight: lighter;
+      // font-weight: lighter;
       @media screen and (max-width: 800px) {
         max-width: 90%;
         font-size: 0.8rem;
